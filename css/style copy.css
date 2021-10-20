@@ -1,0 +1,267 @@
+@charset "UTF-8";
+@import url('https://fonts.googleapis.com/css2?family=Rubik+Beastly&family=Rubik:ital,wght@0,300;0,400;1,300;1,400&family=Secular+One&display=swap');
+
+/* CSS Document */
+* {/*universal reset*/
+  margin: 0px;
+  padding: 0px;
+  box-sizing: border-box;
+}
+/*mobile first*/
+body {
+  background: white;
+}
+
+section {}
+.container {}
+/*the row is how we are divying up vertical space in mobile view*/
+.row {
+  display: flex;
+  flex-direction: column;
+}
+ 
+/*responsive framework*/
+.full, .half, .third, .two_thirds, .quarter, .fifth, .sixth {
+  width: 100%;
+  min-height: 400px;
+  outline: thin red solid; /*delete this*/
+  display: flex; /*centers all text*/
+  align-items: center;
+  justify-content: space-around;
+  flex-direction: column;
+}
+/*stacked elements*/
+.stack {
+  width: 100%;
+  height:200px;
+  display: flex;
+  flex-direction: column;
+  outline: thin rgb(0, 112, 156) solid;
+  justify-content: center;
+  align-items: center;  
+}
+/*I want this to display as a banner*/
+.short {
+  min-height: fit-content;
+  max-height: 50%;
+  display:flex;
+  flex-direction: column;
+}
+
+/*typography*/
+/* #logo {
+  font-family: 'Rubik Beastly', "cursive";
+  font-size:large;
+} */
+h1, h2, h3, h4, h5, h6 {
+font-family: 'Secular One';
+/* font-size: 72px;
+line-height: 84px; */
+}
+p {
+  font-family: 'Rubik', Arial, "sans-serif";
+  font-weight:400;
+}
+
+/*navigation*/
+nav ul {
+  list-style-type: none;
+}
+nav li {
+  text-align: center;
+  width: 100%;
+  height: 40px;
+  background-color: tomato;
+  border: solid 1px teal;
+}
+nav a {
+  text-decoration: none;
+  line-height: 40px;
+}
+
+/*header*/
+#header {
+  height: fit-content;
+  display: flex;
+  flex-direction: column;
+  background: #999;
+}
+#header h1 {
+  text-align: center;
+  height: 50px;
+  line-height: 50px;
+}
+
+/*hero image*/
+#hero {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 400px;
+       
+}
+/*covid alert*/
+#alert {
+  background-color: yellow; 
+}
+/*bg images*/
+#current_work {
+  background-image:  url("../img/africanus_art.jpeg");
+  background-color: fuchsia;
+  min-height: 400px;
+  position: 0px -200px;
+}
+#alumni_profiles {
+  background-image:  url("../img/Jessica-Silverman_Portrait.jpeg");
+  min-height: 400px;
+  background-color: goldenrod;
+}
+#programs {
+background-image: url("../img/saldana_transland_art.jpeg");
+max-width:100%;
+background-color: greenyellow;
+}
+#student_life {
+background-image: url("../img/saldana_transland_art.jpeg");
+max-width:100%;
+background-color: greenyellow;
+}
+#application_info {
+background-image: url("../img/saldana_transland_art.jpeg");
+max-width:100%;
+background-color: greenyellow;
+}
+#connect {
+background-image: url("../img/saldana_transland_art.jpeg");
+max-width:100%;
+background-color: greenyellow;
+}
+#events {
+background-image: url("../img/saldana_transland_art.jpeg");
+max-width:100%;
+background-color: greenyellow;
+}
+#faculty {
+background-image: url("../img/saldana_transland_art.jpeg");
+max-width:100%;
+background-color: greenyellow;
+}
+#facilities {
+background-image: url("../img/saldana_transland_art.jpeg");
+max-width:100%;
+background-color: greenyellow;
+}
+#alumni {
+ background-image: url("../img/saldana_transland_art.jpeg");
+ max-width:100%;
+ background-color: greenyellow;
+ 
+}
+/*footer*/
+#footer {
+  max-height: 200px;
+  display: flex;
+  flex-direction: column;
+  background: #333;
+}
+/*begin css for larger screens here*/
+@media screen and (min-width:740px) {
+  body {
+    background: azure;
+  }
+ 
+  section {}
+  #header {
+    height: 100px;
+    display: flex;
+    flex-direction: row;
+    background: #999;
+    padding-top: 20px;
+  }
+  #header h1 {
+    width: 30%;
+  }
+  nav {
+    width: 70%;
+  }
+  nav ul {
+    display: flex;
+    flex-direction: row;
+    align-items: space-around;
+  }
+  nav li {
+    text-align: center;
+    width: 100%;
+    height: 40px;
+  }
+  .container {
+    max-width: 1280px;
+    margin: auto;
+      background:white;
+  }
+  .row {
+    margin-bottom: 2vw;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    align-items:center;
+  }
+  #hero {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 400px;
+  }
+  
+  .full {
+    width: 100%;
+  }
+  .half {
+    width: 50%;
+  }
+  .third {
+    width: 32%;
+  }
+  .two_thirds {
+    width: 66.66%;
+  }
+  .quarter {
+    width: 25%;
+  }
+  .fifth {
+    width: 20%;
+  }
+  .stack {
+    width: 100%;
+    height: 180px;
+    display: flex;
+    flex-direction: column;
+    outline: thin rgb(0, 112, 156) solid;
+    justify-content: space-around;
+    align-items: center;  
+  }
+  .short {
+    min-height: fit-content;
+    max-height: fit-content;
+  }
+  /*specific divs*/
+  #alert {
+    background-color: yellow; 
+  }
+  /*bg images*/
+  #current_work {
+    background-image:  url("../img/africanus_art.jpeg");
+    background-color: fuchsia;
+    min-height: 400px;
+    position: 0px -200px;
+    margin: 1vw 1vw 1vw 0vw;
+
+  }
+  #alumni_profiles {
+    min-height: 300px;
+    width:30%;
+    margin:4vw 0vw;
+     }
+
+}

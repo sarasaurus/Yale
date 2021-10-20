@@ -1,0 +1,506 @@
+@charset "UTF-8";
+@import url('https://fonts.googleapis.com/css2?family=Rubik+Beastly&family=Rubik:ital,wght@0,300;0,400;1,300;1,400&family=Secular+One&display=swap');
+
+/* CSS Document */
+* {/*universal reset*/
+  margin: 0px;
+  padding: 0px;
+  box-sizing: border-box;
+}
+/*mobile first*/
+body {
+  
+}
+
+section {}
+
+.container {}
+/*the row is how we are divying up vertical space in mobile view*/
+.row {
+  display: flex;
+  flex-direction: column;
+}
+ 
+/*responsive framework*/
+.full, .half, .third, .two_thirds, .quarter, .fifth, .sixth {
+  width: 100%;
+  min-height: 400px;
+  display: flex; /*centers all text*/
+  align-items: center;
+  justify-content: space-around;
+  flex-direction: column;
+  padding:10px;
+}
+
+/*stacked elements*/
+.stack {
+  width: 100%;
+  height:200px;
+  display: flex;
+  flex-direction: column;
+  background-color: yellow;
+  justify-content: center;
+  align-items: center;  
+}
+/*I want this to display as a banner*/
+.short {
+  min-height: fit-content;
+  max-height: 50%;
+  display:flex;
+  flex-direction: column;
+}
+
+/*typography*/
+/* #logo {
+  font-family: 'Rubik Beastly', "cursive";
+  font-size:large;
+} */
+h1, h2, h3, h4, h5, h6 {
+font-family: 'Secular One';
+display:inline-block;
+/* font-size: 72px;
+line-height: 84px; */
+}
+h1 {
+  margin-top: 0;
+  font-size: 3.052rem;
+}
+
+h2 {font-size: 2.441rem;}
+
+h3 {font-size: 1.953rem;}
+
+h4 {font-size: 1.563rem;}
+
+h5 {font-size: 1.25rem;}
+
+small, .text_small {font-size: 0.8rem;}
+
+a {
+  text-decoration: none;
+  font-weight: bold;
+  color: inherit;
+}
+a:hover {
+  background: rgb(196,196,196);
+}
+button {
+  letter-spacing: .1rem;
+  background-color: white;
+  text-align: center;
+  color:black;
+  border-radius: 40px;
+  min-width:100px;
+  height: 50px;
+  cursor: pointer;
+  margin: 10px;
+  padding:10px 20px;
+  border-style: none;
+}
+button:hover {
+  background-color: rgb(196, 196, 196);
+}
+button > * {
+  background:greenyellow;
+  color:black;
+  font-weight: bold;
+}
+button a:hover {
+  color:black;
+}
+p {
+  font-family: 'Rubik', Arial, "sans-serif";
+  font-weight:200;
+  text-align:justify;
+  line-height: 1.3rem;
+}
+
+/*navigation*/
+nav {
+  display: none;
+  position: absolute;
+  width: 100%;
+  margin-top: 90px;
+}
+nav ul {
+  list-style-type: none;
+}
+nav li {
+  
+  text-align: center;
+  width: 100%;
+  height: 40px;
+  background-color: tomato;
+  transition: all .5s ease;
+}
+nav li:hover {
+  border-bottom: 5px solid yellow;
+  transition-duration: 30ms;
+}
+nav a {
+  text-decoration: none;
+  line-height: 40px; 
+  font-family: 'Rubik', Arial, "sans-serif";
+}
+
+.navdropdown {
+  display:none;
+  position: absolute;
+  width: 100%;
+  margin-bottom: 0px;
+  background-color: pink;
+margin-top:200px;
+  height: 300px;
+  padding: 40px 0px;
+  box-shadow: 0px 5px 4px 0px cadetblue;
+}
+.nav-active {
+  display:block;
+}
+.topnav {
+  display: flex;
+  flex-direction: column;
+}
+/*hamburger*/
+.hamburger {
+  background:teal;
+}
+.hamburger:hover {
+  cursor:pointer;
+}
+.hamburgerclick {
+  background:pink;
+}
+.bar1, .bar2, .bar3 {
+  width: 35px;
+  height: 5px;
+  background-color: yellow;
+  margin: 6px 0;
+  transition: 0.4s;
+}
+
+
+
+/*header*/
+#header {
+  height: fit-content;
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 0px;
+}
+#header h1 {
+  text-align: center;
+  height: 50px;
+  line-height: 50px;
+}
+#dropdown {
+  width: 100%;
+  background:green;
+  margin-left:0px;
+
+}
+/*alert bar*/
+.sidebar{
+  display:flex;
+  flex-direction: column;
+}
+.post {
+  padding:10px;
+  background-color: bisque;
+}
+/*hero image*/
+#hero {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 400px;
+       
+}
+/*covid alert*/
+#alert {
+  background-color: yellow; 
+}
+
+/* img styles*/
+img.round {
+  margin: auto;
+  border-radius: 50%;
+  overflow: hidden;
+}
+
+/*bg images*/
+#current_work {
+  padding:5px;
+  overflow: hidden;
+  background-color: fuchsia;
+  min-height: 400px;
+  position: 0px -200px;
+}
+.alumni_profiles {
+  display: flex;
+  flex-direction: column;
+  padding: 2vw;
+  min-height: 400px;
+  background-color: yellow;
+}
+#programs {
+max-width:100%;
+background-color: greenyellow;
+}
+#student_life {
+max-width:100%;
+background-color: rgb(135, 204, 32);
+}
+#application_info {
+max-width:100%;
+background-color: rgb(50, 161, 100);
+}
+#connect {
+max-width:100%;
+background-color: rgb(47, 206, 255);
+}
+#events {
+max-width:100%;
+background-color: rgb(140, 99, 253);
+}
+#faculty {
+max-width:100%;
+background-color: rgb(243, 97, 211);
+}
+#facilities {
+max-width:100%;
+background-color: rgb(216, 255, 74);
+}
+/*featured course*/
+#featured_course {
+ background-image: linear-gradient(rgba(0,0,0,.5),rgba(0,0,0,.1)), url(../img/featured_glass.jpeg);
+ max-width:100%;
+ background-color: greenyellow;
+ 
+}
+#featured_course h3 {
+  color:white;
+}
+/*sliders, I am just grabbing the slideshow element here, adding styles will trump the styles added as a class so dont do*/
+#slideshow {
+
+}
+/*footer*/
+#footer {
+  margin-left: 0px;
+  max-height: 400px;
+  display: flex;
+  flex-direction: column;
+  background: gold;
+}
+#background_text {
+ display:none;
+}
+/*begin css for larger screens here*/
+@media screen and (min-width:740px) {
+  body {
+  }
+ 
+  section {
+    margin-left:10vw;
+  }
+  #header {
+    margin-left:0px;
+    height: fit-content;
+    display: flex;
+    flex-direction: row;
+background: cornflowerblue;
+  }
+  #header h1 {
+    width: 30%;
+  }
+/* hamburger menu */
+.hamburger {
+  display:none;
+}
+  nav {
+    display:inline-block;
+    width: 70%;
+    margin-top:0px;
+    position:relative;
+  }
+  nav ul {
+    display: flex;
+    flex-direction: row;
+    align-items: space-around;
+  }
+  nav li {
+    text-align: center;
+    width: 100%;
+    height: 40px;
+  }
+.navdropdown {
+  margin-top: 299px;
+}
+  .container {
+    max-width: 1280px;
+    margin: auto;
+  }
+  .row {
+    margin-bottom: 2vw;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    align-items:center;
+  }
+  #hero {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 400px;
+  }
+  
+  .full {
+    width: 100%;
+  }
+  .half {
+    width: 50%;
+  }
+  .third {
+    width: 32%;
+  }
+  .two_thirds {
+    width: 66.66%;
+  }
+  .quarter {
+    width: 25%;
+  }
+  .fifth {
+    width: 20%;
+  }
+  .stack {
+    width: 100%;
+    height: 180px;
+    display: flex;
+    flex-direction: column;
+    outline: thin rgb(0, 112, 156) solid;
+    justify-content: space-around;
+    align-items: center;  
+  }
+  .short {
+    min-height: fit-content;
+    max-height: fit-content;
+  }
+  /*alert banner*/
+  .sidebar {
+    z-index:1;
+    margin-top:40px;
+    margin-left:33vw;
+    height:50px;
+    width:100%;
+    background-color: orange;
+    box-shadow: 5px 5px 5px rgb(0,0,0,.2) ;
+  }
+  .alumni_profiles {
+    min-height: 300px;
+     }
+     .post {
+      width: 30vw;
+     }
+  /*specific divs*/
+  #alert {
+    background-color: yellow; 
+  }
+  #blankspace {
+    height:20vh;
+  }
+  /*bg images*/
+  #current_work {
+    min-height: 400px;
+    position: 0px -200px;
+    margin: 1vw 1vw 1vw 0vw;
+  }
+
+/*Background text*/
+  #background_text {
+    display: block;
+    float: left;
+    position: absolute;
+    z-index:-1;
+    width:40vw;
+    background-color: cyan;
+    margin-left:-10vw;
+    
+  }
+  #background_text h1 {
+  writing-mode: vertical-lr;
+  text-orientation: upright;
+  font-size:30vw;
+  letter-spacing:-20vw;
+  white-space: nowrap;
+  }
+}
+
+/* js javascript script testing TESTETTESETSTESTESTTTTEST testing */
+/*delete me*/
+.third {
+  background-color: crimson;
+}
+/*testing event onclick listener*/
+.backgroundcolor {
+  background-color: darkmagenta;
+}
+#backgroundcolor {
+  background-color: darkorange;
+}
+/*slide show*/
+.slide{
+  display: none;
+}
+.slide.active {
+  display: block;
+}
+
+/* --- Hamburger Appearance & Animation to examine, not in use --- */
+/* Credit: https://codepen.io/mblode/pen/evjfn */
+div.menu-link {
+  width: 30px;
+  top: 100px;
+  left: 120px;
+  transition-duration: 0.5s;
+}
+div.menu-link .icon {
+  transition-duration: 0.5s;
+  position: absolute;
+  height: 4px;
+  width: 30px;
+  top: 20px;
+  background-color: #efefef;
+}
+div.menu-link .icon:before {
+  transition-duration: 0.5s;
+  position: absolute;
+  width: 30px;
+  height: 4px;
+  background-color: #efefef;
+  content: "";
+  top: -10px;
+}
+div.menu-link .icon:after {
+  transition-duration: 0.5s;
+  position: absolute;
+  width: 30px;
+  height: 4px;
+  background-color: #efefef;
+  content: "";
+  top: 10px;
+}
+div.menu-link.open .icon {
+  transition-duration: 0.5s;
+  background: transparent;
+}
+div.menu-link.open .icon:before {
+  transform: rotateZ(45deg) scaleX(1.25) translate(6.5px, 6.5px);
+}
+div.menu-link.open .icon:after {
+  transform: rotateZ(-45deg) scaleX(1.25) translate(6px, -6px);
+}
+div.menu-link:hover {
+  cursor: pointer;
+}

@@ -17,26 +17,6 @@ function basicBurger (){//we declare a function in js
     });
     console.log("the listener has been added")
   }
-
-/* slideshow uses a series of imgs already in dom and then toggles visibility using an active class*/
-function slideShow () {
-let slideImages = document.querySelector('.slideshow');
-  //create slides
-for(let i = 1; i <= 5; i++) {
-      let newImage = document.createElement('img');
-      newImage.setAttribute('src', 'img/image-' + i + '.png');
-      newImage.setAttribute('class',`slide`)
-      slideImages.appendChild(newImage);
-      console.log(`new image:${newImage}`);
-      console.log(`slideshow:${slideImages}`);
-  }
-let slides = slideImages.getElementsByClassName('slide');
-let slidesLength = slides.length;
-console.log(`number of slides:${slidesLength}`);
-let firstSlide = slides[0];
-let lastSlide = slides[slidesLength - 1];
-
-}
 function dropDown () {
   let cancelmenu=document.querySelector(".container")
   let dropmenu = document.querySelector(".navdropdown");
@@ -48,39 +28,127 @@ cancelmenu.addEventListener("mouseover", ()=>{
   dropmenu.classList.remove("nav-active");
 })
 }
+//copied from codepen
+var slider = document.getElementById('slider'),
+    sliderItems = document.getElementById('slides'),
+    prev = document.getElementById('prev'),
+    next = document.getElementById('next');
+
+function slide(wrapper, items, prev, next) {
+  console.log(`check variables--wrapper:${wrapper}, items:${items}, prev:${prev}, next:${next}`)
+  var posX1 = 0,
+      posX2 = 0,
+      posInitial,
+      posFinal,
+      threshold = 100,
+      slides = items.getElementsByClassName('slide'),
+      slidesLength = slides.length,
+      slideSize = items.getElementsByClassName('slide')[0].offsetWidth,
+      firstSlide = slides[0],
+      lastSlide = slides[slidesLength - 1],
+      cloneFirst = firstSlide.cloneNode(true),
+      cloneLast = lastSlide.cloneNode(true),
+      index = 0,
+      allowShift = true;
+  
+  // Clone first and last slide
+  items.appendChild(cloneFirst);
+  items.insertBefore(cloneLast, firstSlide);
+  wrapper.classList.add('loaded');
+  
+  // Mouse events
+  items.onmousedown = dragStart;
+  
+  // Touch events
+  items.addEventListener('touchstart', dragStart);
+  items.addEventListener('touchend', dragEnd);
+  items.addEventListener('touchmove', dragAction);
+  
+  // Click events
+  prev.addEventListener('click', function () { shiftSlide(-1) });
+  next.addEventListener('click', function () { shiftSlide(1) });
+  
+  // Transition events
+  items.addEventListener('transitionend', checkIndex);
+  
+  function dragStart (e) {
+    e = e || window.event;
+    e.preventDefault();
+    posInitial = items.offsetLeft;
+    
+    if (e.type == 'touchstart') {
+      posX1 = e.touches[0].clientX;
+    } else {
+      posX1 = e.clientX;
+      document.onmouseup = dragEnd;
+      document.onmousemove = dragAction;
+    }
+  }
+
+  function dragAction (e) {
+    e = e || window.event;
+    
+    if (e.type == 'touchmove') {
+      posX2 = posX1 - e.touches[0].clientX;
+      posX1 = e.touches[0].clientX;
+    } else {
+      posX2 = posX1 - e.clientX;
+      posX1 = e.clientX;
+    }
+    items.style.left = (items.offsetLeft - posX2) + "px";
+  }
+  
+  function dragEnd (e) {
+    posFinal = items.offsetLeft;
+    if (posFinal - posInitial < -threshold) {
+      shiftSlide(1, 'drag');
+    } else if (posFinal - posInitial > threshold) {
+      shiftSlide(-1, 'drag');
+    } else {
+      items.style.left = (posInitial) + "px";
+    }
+
+    document.onmouseup = null;
+    document.onmousemove = null;
+  }
+  
+  function shiftSlide(dir, action) {
+    items.classList.add('shifting');
+    console.log(`items classlist: ${items.classList}`)
+    if (allowShift) {
+      if (!action) { posInitial = items.offsetLeft; }
+
+      if (dir == 1) {
+        items.style.left = (posInitial - slideSize) + "px";
+        index++;      
+      } else if (dir == -1) {
+        items.style.left = (posInitial + slideSize) + "px";
+        index--;      
+      }
+    };
+    
+    allowShift = false;
+  }
+    
+  function checkIndex (){
+    items.classList.remove('shifting');
+
+    if (index == -1) {
+      items.style.left = -(slidesLength * slideSize) + "px";
+      index = slidesLength - 1;
+    }
+
+    if (index == slidesLength) {
+      items.style.left = -(1 * slideSize) + "px";
+      index = 0;
+    }
+    
+    allowShift = true;
+  }
+}
+
+slide(slider, sliderItems, prev, next);
   //exports
 dropDown ();
 basicBurger();
-slideShow();
 
-//slideshow based on an image gallery//
-// const displayedImage = document.querySelector('.displayed-img');
-// const thumbBar = document.querySelector('.thumb-bar');
-
-// const btn = document.querySelector('button');
-// const overlay = document.querySelector('.overlay');
-
-// /* Looping through images */
-
-// for(let i = 1; i <= 5; i++) {
-//   const newImage = document.createElement('img');
-//   newImage.setAttribute('src', 'images/pic' + i + '.jpg');
-//   thumbBar.appendChild(newImage);
-//   newImage.onclick = function(e) {
-//     displayedImage.src = e.target.src;
-//   }
-// }
-
-// /* Wiring up the Darken/Lighten button */
-
-// btn.onclick = function() {
-//   const btnClass = btn.getAttribute('class');
-//   if(btnClass === 'dark') {
-//     btn.setAttribute('class','light');
-//     btn.textContent = 'Lighten';
-//     overlay.style.backgroundColor = 'rgba(0,0,0,0.5)';
-//   } else {
-//     btn.setAttribute('class','dark');
-//     btn.textContent = 'Darken';
-//     overlay.style.backgroundColor = 'rgba(0,0,0,0)';
-//   }
